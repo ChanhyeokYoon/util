@@ -44,9 +44,7 @@ def scene_list_extractor(super_path):
     return scene_list
 
 def scene_extractor(scene):
-    # os.system('colmap')
     img_path = '{}'.format(scene) + '/'
-    # 'Z:/NYU Depth Dataset V2/nyu_v2_rgb_only/'
     workspace_path = './colmap_results/{}/'.format(scene)
     os.makedirs('{}'.format(workspace_path), exist_ok=True)
 
@@ -62,7 +60,7 @@ def iteration(super_path, scene_list):
 
 if __name__ == '__main__':
     # super_path = 'scenes/'
-    super_path = '../mnt/NYU Depth Dataset V2/nyu_depth_v2_rgb/'
+    super_path = '/workspace/mnt/NYU Depth Dataset V2/nyu_depth_v2_rgb/'
 
     scene_list = scene_list_extractor(super_path)
     iteration(super_path, scene_list)
