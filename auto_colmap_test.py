@@ -60,7 +60,7 @@ def iteration(super_path, scene_list):
 
 if __name__ == '__main__':
     # super_path = 'scenes/'
-    super_path = 'workspace/mnt/Privacy_preserving/NYU Depth Dataset V2/nyu_v2_rgb_only/'
+    super_path = '../mnt/Privacy_preserving/NYU Depth Dataset V2/nyu_v2_rgb_only/'
 
     scene_list = scene_list_extractor(super_path)
     iteration(super_path, scene_list)
