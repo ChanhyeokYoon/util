@@ -11,7 +11,9 @@ def auto_colmap(workspace_path, img_path):
                 --database_path {} \
                 --image_path {} \
                 --ImageReader.camera_model SIMPLE_RADIAL \
-                --ImageReader.single_camera=1'.format(db_path, img_path))
+                --ImageReader.single_camera=1 \
+                --SiftExtraction.use_gpu=1 \
+                --SiftExtraction.gpu_index=-1'.format(db_path, img_path))
     # Perform feature matching after performing feature extraction
     print('Colmap feature matching...')
     os.system('colmap exhaustive_matcher \
@@ -23,7 +25,9 @@ def auto_colmap(workspace_path, img_path):
     os.system('colmap mapper \
                 --database_path {} \
                 --image_path {} \
-                --output_path {}'.format(db_path, img_path, sparse_path))
+                --output_path {} \
+                --SiftMatching.use_gpu=1 \
+                --SiftMatching.gpu_index=-1'.format(db_path, img_path, sparse_path))
     
     # Convert bin files to txt files for debugging
     print('Colmap making output files...')
