@@ -11,8 +11,7 @@ def auto_colmap(workspace_path, img_path):
                 --database_path {} \
                 --image_path {} \
                 --ImageReader.camera_model SIMPLE_RADIAL \
-                --ImageReader.single_camera=1 \
-                --SiftExtraction.gpu_index=0'.format(db_path, img_path))
+                --ImageReader.single_camera=1'.format(db_path, img_path))
     # Perform feature matching after performing feature extraction
     print('Colmap feature matching...')
     os.system('colmap exhaustive_matcher \
@@ -46,7 +45,7 @@ def scene_list_extractor(super_path):
 
 def scene_extractor(scene):
     img_path = '{}'.format(scene) + '/'
-    workspace_path = './colmap_results/{}/'.format(scene)
+    workspace_path = '/workspace/colmap_results/{}/'.format(scene)
     os.makedirs('{}'.format(workspace_path), exist_ok=True)
 
     print('Scene {} on work...'.format(scene))
